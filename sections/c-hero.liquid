@@ -6,12 +6,11 @@
     height: 100vh;
     {% if section.settings.image %}
       background-image: url('{{ section.settings.image | image_url: width: 2500 }}');
-      background-size: cover;
+      background-size: '{{ section.settings.image_size }}';
       background-repeat: no-repeat;
       background-position: center;
-    {% else %}
-      background: {{ section.settings.bg_color }};
     {% endif %}
+    background: {{ section.settings.bg_color }};
     position: relative;
   }
 
@@ -210,6 +209,22 @@
         "type": "image_picker",
         "id": "image",
         "label": "Background Image"
+      },
+      {
+        "type": "select",
+        "id": "image_size",
+        "label": "Background Image Size",
+        "default": "contain",
+        "options": [
+          {
+            "value": "cover",
+            "label": "Cover"
+          },
+          {
+            "value": "contain",
+            "label": "Contain"
+          }
+        ]
       },
       {
         "type": "header",
