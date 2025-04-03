@@ -29,11 +29,12 @@
         "heading": "",
         "header_image": "shopify://shop_images/Group_441.png",
         "image": "shopify://shop_images/hero-bg-img.jpg",
+        "image_size": "contain",
         "button_text": "Buy Now",
         "button_url": "",
         "button_style": "c-b1",
         "text_alignment": "center",
-        "bg_color": "",
+        "bg_color": "#1e1e1e",
         "text_color": "#ffffff",
         "padding_top": 5,
         "padding_bottom": 5
