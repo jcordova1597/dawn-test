@@ -4,207 +4,62 @@
     font-size: 16px;
     padding-top: {{ section.settings.padding_top }}em;
     padding-bottom: {{ section.settings.padding_bottom }}em;
-
-    .c-collection-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      margin-top: 1rem;
-      text-transform: uppercase;
-    }
-
-    .c-collection-image {
-      border-radius: 0;
-      height: auto;
-      max-height: 368px;
-      object-fit: contain;
-    }
-
-    .c-collection-image:hover {
-      boder: 1px solid #000;
-    }
-
-    .c-link {
-      text-decoration: underline;
-      position: relative;
-      display: inline-block;
-      transition: all 0.4s ease-in;
-    }
-
-    .c-link:hover svg {
-      right: -40px;
-      transition: all 0.4s ease-in;
-    }
-
-    .c-link svg {
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      right: -35px;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      transition: all 0.4s ease-in;
-    }
-
-    .swiper-button-next::after, .swiper-button-prev::after {
-      content: "";
-    }
-
-    .swiper-controls {
-      margin-top: 64px;
-    }
-
-    .swiper-pagination-bullet-active {
-      color: {{ section.settings.controls_color }};
-      background-color: {{ section.settings.controls_color }};
-    }
-  }
-  #{{ section.id }} .swiper-button-next, #{{ section.id }} .swiper-button-prev {
-    top: auto;
-    bottom: 0;
-  }
-  #{{ section.id }} .swiper-button-prev {
-    left: auto;
-    right: 50px;
-  }
-
-  #{{ section.id }} .swiper-pagination {
-    margin-top: 32px;
-    text-align: left;
-  }
-
-  #{{ section.id }} .c-section-top-subheading,
-  #{{ section.id }} div,
-  #{{ section.id }} h2,
-  #{{ section.id }} h3 {
-    color: {{ section.settings.text_color }};
   }
 
   #{{ section.id }} .c-section-top {
-    align-items: {{ section.settings.section_top_alignment }};
+    display: flex;
+    flex-direction: column;
     text-align: {{ section.settings.text_alignment }};
-    padding-bottom: 32px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
   }
 {% endstyle %}
 
 <section id="{{ section.id }}" class="bg-white">
   <div class="container tw-px-4 tw-py-4 tw-mx-auto md:tw-px-0 md:tw-py-8">
     <div class="c-section-top">
-      {%- if section.settings.section_top_subheading != empty -%}
-        <p class="c-section-top-subheading">{{ section.settings.section_top_subheading }}</p>
-      {%- endif -%}
       {%- if section.settings.section_top_heading != empty -%}
         <h2>{{ section.settings.section_top_heading }}</h2>
       {%- endif -%}
       {%- if section.settings.section_top_paragraph != empty -%}
         <div class="c-t-80">{{ section.settings.section_top_paragraph }}</div>
       {%- endif -%}
-      {%- if section.settings.section_top_link != empty -%}
-        <a href="{{ section.settings.section_top_link_url }}" class="c-t-80 c-link">{{ section.settings.section_top_link }} {% render 'c-arrow-w-border' %}</a>
-      {%- endif -%}
     </div>
-    <div class="swiper cardSwiper">
-      <div class="swiper-wrapper">
-        {% for product in section.settings.featured_collection.products limit: 10 %}
-          <a
-            class="swiper-slide !tw-h-[670px] !tw-flex !tw-flex-col !tw-justify-between !tw-items-start"
-            href="{{ product.url }}"
-          >
-            <div class="tw-w-full !tw-object-cover !tw-h-[400px]">
-              {% if product.featured_image %}
-                {{ product.featured_image | image_url: width: 400 | image_tag: class: 'c-collection-image' }}
-              {% else %}
-                {{ product.images[0] | image_url: width: 400 | image_tag: class: 'c-collection-image' }}
-              {% endif %}
+    <div class="c-collection-box">
+      {% for product in section.settings.featured_collection.products limit: 10 %}
+        <div class="c-collection-item">
+          <div class="c-ci-image">
+            {% if product.featured_image %}
+              {{ product.featured_image | image_url: width: 400 | image_tag: class: 'c-collection-image' }}
+            {% else %}
+              {{ product.images[0] | image_url: width: 400 | image_tag: class: 'c-collection-image' }}
+            {% endif %}
+          </div>
+          <div class="c-ci-text">
+            <h3 class="c-ci-title">{{ product.title }}</h3>
+            <p class="c-ci-description">{{ product.description }}</p>
+            <div class="c-ci-price" >
+              {{ product.price }}
             </div>
-            <div>
-              <h3 class="c-collection-title">{{ product.title }}</h3>
-              {%- if product.metafields.reviews.rating.value != blank -%}
-                <div>
-                  {% render 'rating',
-                    rating_value: product.metafields.reviews.rating.value,
-                    rating_count: product.metafields.reviews.rating_count
-                  %}
-                </div>
-              {%- endif -%}
-              <div class="product-info__price" style="font-size: 16px;">
-                {% render 'price', product: product %}
-              </div>
-            </div>
-          </a>
-        {% endfor %}
-      </div>
-      <div
-        class="swiper-controls"
-        style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; position: relative"
-      >
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" fill="{{ section.settings.controls_color }}"/>
-            <path d="M32 23H19.83L25.42 17.41L24 16L16 24L24 32L25.41 30.59L19.83 25H32V23Z" fill="#000000"/>
-          </svg>
+          </div>
+          <a href="{{ product.url }}" class="c-b1">ADD TO CART</a>
         </div>
-        <div class="swiper-button-next">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="48" height="48" fill="{{ section.settings.controls_color }}"/>
-            <path d="M24 16L22.59 17.41L28.17 23H16V25H28.17L22.59 30.59L24 32L32 24L24 16Z" fill="#000000"/>
-          </svg>
-        </div>
-      </div>
+      {% endfor %}
     </div>
+    {%- if section.settings.section_top_link != empty -%}
+      <div class="c-buttons-div">
+        <a href="{{ section.settings.section_top_link_url }}" class="c-t-80 c-link">{{ section.settings.section_top_link }}</a>
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
-<script>
-  var swiper = new Swiper('.cardSwiper', {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    loop: false,
-    breakpoints: {
-      640: {
-        slidesPerView: 1.5,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 2.8,
-        spaceBetween: 40,
-      },
-      1024: {
-        slidesPerView: 3.2,
-        spaceBetween: 50,
-      },
-      1280: {
-        slidesPerView: 3.8,
-        spaceBetween: 60,
-      },
-      1536: {
-        slidesPerView: 4.2,
-        spaceBetween: 60,
-      },
-    },
-  });
-</script>
 
 {% schema %}
 {
   "name": "C Featured Collection",
   "settings": [
-    {
-      "type": "text",
-      "label": "Subheading",
-      "id": "section_top_subheading",
-      "default": "Our Team"
-    },
     {
       "type": "text",
       "label": "Header",
@@ -303,12 +158,6 @@
       "type": "collection",
       "id": "featured_collection",
       "label": "Featured Collection"
-    },
-    {
-      "type": "color",
-      "label": "Controls Color",
-      "id": "controls_color",
-      "default": "#000000"
     }
   ],
   "presets": [
