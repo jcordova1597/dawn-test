@@ -99,9 +99,9 @@
           </div>
           <div class="c-ci-text">
             <h3 class="c-ci-title">{{ product.title }}</h3>
-            <p class="c-ci-description">{{ product.description }}</p>
+            <p class="c-ci-description">{{ product.description | strip_html }}</p>
             <div class="c-ci-price" >
-              {{ product.price }}
+              {{ product.price | money }}
             </div>
           </div>
           <a href="{{ product.url }}" class="c-b1">ADD TO CART</a>
