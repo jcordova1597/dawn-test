@@ -80,6 +80,8 @@
       {% if section.settings.image_mobile %}
         background: url("{{ section.settings.image_mobile | image_url }}") no-repeat center;
         background-size: cover;
+      {% else %}
+        background-image: unset;
       {% endif %}
     }
 
