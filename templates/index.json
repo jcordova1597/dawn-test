@@ -22,8 +22,8 @@
         "text_alignment": "center",
         "bg_color": "",
         "text_color": "#ffffff",
-        "padding_top": 4,
-        "padding_bottom": 4
+        "padding_top": 5,
+        "padding_bottom": 5
       }
     },
     "image_banner": {
