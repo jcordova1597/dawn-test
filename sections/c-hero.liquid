@@ -8,7 +8,7 @@
       background-image: url('{{ section.settings.image | image_url: width: 2500 }}');
       background-size: cover;
       background-repeat: no-repeat;
-      background-position-x: center;
+      background-position: center;
     {% else %}
       background: {{ section.settings.bg_color }};
     {% endif %}
@@ -32,7 +32,7 @@
     text-align: {{ section.settings.text_alignment }};
     align-items: center;
     justify-content: space-between;
-    gap: 3.1rem;
+    gap: 50px;
   }
 
   #{{ section.id }} .c-header_image {
@@ -149,26 +149,24 @@
     "name": "C Hero",
     "blocks": [
       {
-        "name": "Button",
-        "type": "Button",
+        "name": "Item",
+        "type": "Item",
         "limit": 3,
         "settings": [
           {
             "type": "text",
-            "id": "button_text",
-            "label": "Button text",
-            "default": "Buy Now"
+            "id": "heading",
+            "label": "Item Heading"
           },
           {
-            "type": "url",
-            "id": "button_url",
-            "label": "Button Link"
+            "type": "richtext",
+            "id": "body",
+            "label": "Item Body"
           },
           {
-            "type": "text",
-            "id": "button_style",
-            "label": "Button style",
-            "default": "c-b1"
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
           }
         ]
       }
