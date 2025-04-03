@@ -6,6 +6,18 @@
     padding-bottom: {{ section.settings.padding_bottom }}em;
   }
 
+  #{{ section.id }} .page-width {
+    max-width: 650px;
+    margin: 0 auto;
+    width: 95%;
+  }
+
+  #{{ section.id }} h2,
+  #{{ section.id }} p,
+  #{{ section.id }} span {
+    color: {{ section.settings.text_color }} !important;
+  }
+
   #{{ section.id }} .c-section-top {
     display: flex;
     flex-direction: column;
@@ -13,10 +25,37 @@
     align-items: center;
     justify-content: space-between;
     gap: 18px;
+    margin-bottom: 26px;
+  }
+
+  #{{ section.id }} .c-section-top h2 {
+    font-size: 60px;
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    margin: 0;
+    line-height: 90%: 
+  }
+
+  #{{ section.id }} .c-section-top p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 160%;
+    margin: 0;
+  }
+
+  #{{ section.id}} .c-collection-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  #{{ section.id }} .c-collection-item {
+    max-width: 257px;
+    width: 45%;
   }
 {% endstyle %}
 
-<section id="{{ section.id }}" class="bg-white">
+<section id="{{ section.id }}" class="c-section">
   <div class="container tw-px-4 tw-py-4 tw-mx-auto md:tw-px-0 md:tw-py-8">
     <div class="c-section-top">
       {%- if section.settings.section_top_heading != empty -%}
