@@ -11,6 +11,19 @@
   "sections": {
     "c_hero_HPDEQd": {
       "type": "c-hero",
+      "blocks": {
+        "item_4WcibA": {
+          "type": "Item",
+          "settings": {
+            "heading": "High-Quality",
+            "body": "<p>Science-Backed Formulas</p>",
+            "image": "shopify://shop_images/molecular-structure_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_4WcibA"
+      ],
       "custom_css": [],
       "settings": {
         "heading": "",
