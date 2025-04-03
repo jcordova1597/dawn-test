@@ -3,6 +3,7 @@
     font-size: 1em;
     padding-top: {{ section.settings.padding_top }}em;
     padding-bottom: {{ section.settings.padding_bottom }}em;
+    height: 100vh;
     {% if section.settings.image %}
       background-image: url('{{ section.settings.image | image_url: width: 2500 }}');
       background-size: cover;
@@ -26,22 +27,22 @@
   }
 
   #{{ section.id }} .c-section-top {
-    align-items: flex-start;
-    width: 100%;
-  }
-
-  #{{ section.id }} .c-hero-box {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  #{{ section.id }} .c-hero-text {
-    gap: 1.5em;
+    flex-direction: column;
     text-align: {{ section.settings.text_alignment }};
-    width: 58%;
+    align-items: center;
+    gap: 3.1rem;
   }
-
+  
+  #{{ section.id }} .c-b1 {
+    background: #E9128A;
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    color: white;
+    font-size: 20px;
+    line-height: 40px;
+    padding: 5px 48px;
+  }
 
 
   @media (max-width: 1280px) {
@@ -56,20 +57,18 @@
 </style>
 
 <section id="{{ section.id }}" class="c-section">
-  <div class="{% if section.settings.full_width == false %}page-width{% endif %}">
+  <div class="page-width">
     <div class="c-hero-box">
-      <div class="c-hero-text">
-        <div class="c-section-top">
-          <div class="c-section-top-rating">
-            <span>{{ section.settings.subheading }}</span>
-          </div>
-          {%- if section.settings.section_top_heading != empty -%}
-            <h1 class="c-section-top-heading">{{ section.settings.heading }}</h1>
-          {%- endif -%}
-          {%- if section.settings.button_text != blank %}
-            <a href="{{ section.settings.button_url }}" class="c-button {{ section.settings.button_style }}"><span class="c-b-text">{{ section.settings.button_text }}</span> </a>
-          {% endif %}
+      <div class="c-section-top">
+        <div class="c-section-top-rating">
+          <span>{{ section.settings.subheading }}</span>
         </div>
+        {%- if section.settings.section_top_heading != empty -%}
+          <h1 class="c-section-top-heading">{{ section.settings.heading }}</h1>
+        {%- endif -%}
+        {%- if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_url }}" class="c-button {{ section.settings.button_style }}"><span class="c-b-text">{{ section.settings.button_text }}</span> </a>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -138,12 +137,6 @@
         "id": "button_style",
         "label": "Button style",
         "default": "c-b1"
-      },
-      {
-        "type": "checkbox",
-        "id": "full_width",
-        "label": "Full width?",
-        "default": false
       },
       {
         "type": "select",
