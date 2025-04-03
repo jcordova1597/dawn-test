@@ -6,7 +6,7 @@
     height: 100vh;
     {% if section.settings.image %}
       background-image: url('{{ section.settings.image | image_url: width: 2500 }}');
-      background-size: '{{ section.settings.image_size }}';
+      background-size: {{ section.settings.image_size }};
       background-repeat: no-repeat;
       background-position: center;
     {% endif %}
