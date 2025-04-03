@@ -123,6 +123,13 @@
     align-items: center;
   }
 
+  @media (max-width: 1200px) {
+    #{{ section.id }} .c-ct-grid2,
+    #{{ section.id }} .c-ct-grid2 img {
+      max-height: unset;
+    }
+  }
+
   @media (max-width: 990px) {
     #{{ section.id }} .c-ct-grid {
       grid-template-columns: 1fr;
@@ -134,13 +141,17 @@
       gap: 18px;
       padding: {{ section.settings.padding_mobile }};
       order: 1;
-      align-items: flex-start;
-      /* padding: 0em; */
+      align-items: center;
+      text-align: center;
+    }
+
+    #{{ section.id }} .c-ct-grid1 h2 {
+      font-size: 3.5rem;
     }
 
     #{{ section.id }} .c-ct-grid2 {
       width: 70%;
-      margin: 0 auto;
+      margin: 4em auto 0;
     }
   }
   
