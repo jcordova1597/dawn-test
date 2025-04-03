@@ -13,7 +13,8 @@
       "type": "c-hero",
       "custom_css": [],
       "settings": {
-        "heading": "dfgsd",
+        "heading": "",
+        "header_image": "shopify://shop_images/Group_441.png",
         "image": "shopify://shop_images/hero-bg-img.jpg",
         "button_text": "Buy Now",
         "button_url": "",
