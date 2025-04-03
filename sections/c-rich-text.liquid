@@ -19,6 +19,13 @@
     {% endif %}
   }
 
+  #{{ section.id }} .page-width {
+    position: relative;
+    max-width: 1440px;
+    display: flex;
+    align-items: {{ section.settings.section_top_alignment }};
+  }
+
   #{{ section.id }} .c-section-top-subheading,
   #{{ section.id }} div,
   #{{ section.id }} h2,
@@ -27,17 +34,44 @@
   }
 
   #{{ section.id }} .c-section-top {
-    align-items: {{ section.settings.section_top_alignment }};
     text-align: {{ section.settings.text_alignment }};
     width: {{ section.settings.width_box }}%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    margin: 0;
   }
 
-  #{{ section.id }} .c-section-top h2 {
+  #{{ section.id }} h2 {
+    font-family: "Barlow", sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 90%;
     margin: 0;
+  }
+
+  #{{ section.id }} p {
+    font-family: "Barlow", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 160%;
+    margin: 0;
+  }
+
+  #{{ section.id }} .c-b1 {
+    background: #E9128A;
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    color: white;
+    font-size: 20px;
+    line-height: 40px;
+    padding: 5px 28px;
+    text-decoration: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+    transition: all 0.4s ease-in;
+    display: inline-block;
+  }
+
+  #{{ section.id }} .c-b1:hover {
+    background: #FE6BB2;
   }
 
 
