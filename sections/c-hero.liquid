@@ -31,7 +31,21 @@
     flex-direction: column;
     text-align: {{ section.settings.text_alignment }};
     align-items: center;
+    justify-content: space-between;
     gap: 3.1rem;
+  }
+
+  #{{ section.id }} .c-header_image {
+    max-width: 866px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  #{{ section.id }} .c-header_image img {
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    display: block;
   }
   
   #{{ section.id }} .c-b1 {
@@ -41,9 +55,41 @@
     color: white;
     font-size: 20px;
     line-height: 40px;
-    padding: 5px 48px;
+    padding: 5px 28px;
+    text-decoration: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+    transition: all 0.4s ease-in;
   }
 
+  #{{ section.id }} .c-b1:hover {
+    background: #FE6BB2;
+  }
+
+  #{{ section.id }} .c-hero-item {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 913px;
+  }
+
+  #{{ section.id }} .c-hero-item {
+    display: flex;
+    gap: 1.12rem;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  #{{ section.id }} .c-hi-img {
+    width: 42px;
+    height: 42px;
+  }
+
+  #{{ section.id }} .c-hi-img img {
+    object-fit: contain;
+    width: 100%;
+  }
 
   @media (max-width: 1280px) {
   
@@ -56,13 +102,17 @@
 
 </style>
 
+{% assign block_item = section.blocks | where: 'type', 'Item' %}
+
 <section id="{{ section.id }}" class="c-section">
   <div class="page-width">
     <div class="c-hero-box">
       <div class="c-section-top">
-        <div class="c-section-top-rating">
-          <span>{{ section.settings.subheading }}</span>
-        </div>
+        {% if section.settings.header_image %}
+          <div class="c-header_image">
+            {{ section.settings.header_image | image_url: width: 1600 | image_tag: loading: 'lazy', height: 'auto' }}
+          </div>
+        {% endif %}
         {%- if section.settings.section_top_heading != empty -%}
           <h1 class="c-section-top-heading">{{ section.settings.heading }}</h1>
         {%- endif -%}
@@ -70,6 +120,25 @@
           <a href="{{ section.settings.button_url }}" class="c-button {{ section.settings.button_style }}"><span class="c-b-text">{{ section.settings.button_text }}</span> </a>
         {% endif %}
       </div>
+      {% if block_item.size > 0 %}
+        <div class="c-hero_items">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              <div class="c-hero-item">
+                <div class="c-hi-img">
+                  {{ block.settings.image | image_url: width: 150 | image_tag: loading: 'lazy', height: 'auto' }}
+                </div>
+                <div class="c-hi-text">
+                  <h3>{{ block.settings.heading }}</h3>
+                  {% if block.settings.body != empty %}
+                    {{ block.settings.body }}
+                  {% endif %}
+                </div>
+              </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -111,6 +180,11 @@
         "id": "heading",
         "label": "Heading",
         "default": "My heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "header_image",
+        "label": "Header Image"
       },
       {
         "type": "image_picker",
@@ -166,7 +240,7 @@
         "type": "color_background",
         "id": "bg_color",
         "label": "Background color",
-        "default": "linear-gradient(270deg, #E23255 0%, #8E2788 100%)"
+        "default": "#000"
       },
       {
         "type": "color",
