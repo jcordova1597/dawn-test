@@ -94,11 +94,55 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "c_content_text_WENATh": {
+      "type": "c-content-text",
+      "settings": {
+        "heading": "The Essentials for Thriving Health",
+        "paragraph": "<p>From energy to recovery, we’ve got your back—and every other muscle, joint, and cell in between.</p>",
+        "image_size": "full_cover",
+        "image": "shopify://shop_images/essential-img.jpg",
+        "flip": true,
+        "grid_proportion": "1fr 1fr",
+        "alignment": "flex-end",
+        "text_alignment": "right",
+        "button_text": "GET A SUBSCRIPTION",
+        "button_url": "",
+        "bg_color": "#000000",
+        "text_color": "#ffffff",
+        "padding_desktop": "80px 10% 104px",
+        "padding_mobile": "2em 1em 1em 1em",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "c_content_text_gN33Lm": {
+      "type": "c-content-text",
+      "settings": {
+        "heading": "The Essentials for Thriving Health",
+        "paragraph": "<p>From energy to recovery, we’ve got your back—and every other muscle, joint, and cell in between.</p>",
+        "image_size": "full_cover",
+        "image": "shopify://shop_images/essential-img.jpg",
+        "flip": true,
+        "grid_proportion": "1fr 1fr",
+        "alignment": "flex-end",
+        "text_alignment": "right",
+        "button_text": "GET A SUBSCRIPTION",
+        "button_url": "",
+        "bg_color": "#000000",
+        "text_color": "#ffffff",
+        "padding_desktop": "80px 10% 104px",
+        "padding_mobile": "2em 1em 1em 1em",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "c_hero_HPDEQd",
     "c_featured_collection_apV7kG",
-    "c_content_text_6KgrVU"
+    "c_content_text_6KgrVU",
+    "c_content_text_WENATh",
+    "c_content_text_gN33Lm"
   ]
 }
