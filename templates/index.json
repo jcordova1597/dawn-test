@@ -19,10 +19,28 @@
             "body": "<p>Science-Backed Formulas</p>",
             "image": "shopify://shop_images/molecular-structure_1.png"
           }
+        },
+        "item_jVQpLx": {
+          "type": "Item",
+          "settings": {
+            "heading": "By healthcare providers",
+            "body": "<p>Experts in cardiovascular health</p>",
+            "image": "shopify://shop_images/healthcare-icon.png"
+          }
+        },
+        "item_Jf9GLe": {
+          "type": "Item",
+          "settings": {
+            "heading": "Premium Ingredients",
+            "body": "<p>High Quality, Pure and Potent </p>",
+            "image": "shopify://shop_images/ingredients-icon.png"
+          }
         }
       },
       "block_order": [
-        "item_4WcibA"
+        "item_4WcibA",
+        "item_jVQpLx",
+        "item_Jf9GLe"
       ],
       "custom_css": [],
       "settings": {
