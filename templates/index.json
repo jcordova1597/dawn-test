@@ -70,7 +70,7 @@
         "text_alignment": "center",
         "section_top_alignment": "center",
         "padding_top": 2,
-        "padding_bottom": 2,
+        "padding_bottom": 5,
         "featured_collection": "frontpage"
       }
     },
