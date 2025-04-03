@@ -124,17 +124,18 @@
         <div class="c-hero_items">
           {% for block in section.blocks %}
             {% case block.type %}
-              <div class="c-hero-item">
-                <div class="c-hi-img">
-                  {{ block.settings.image | image_url: width: 150 | image_tag: loading: 'lazy', height: 'auto' }}
+              {% when 'Item' %}
+                <div class="c-hero-item">
+                  <div class="c-hi-img">
+                    {{ block.settings.image | image_url: width: 150 | image_tag: loading: 'lazy', height: 'auto' }}
+                  </div>
+                  <div class="c-hi-text">
+                    <h3>{{ block.settings.heading }}</h3>
+                    {% if block.settings.body != empty %}
+                      {{ block.settings.body }}
+                    {% endif %}
+                  </div>
                 </div>
-                <div class="c-hi-text">
-                  <h3>{{ block.settings.heading }}</h3>
-                  {% if block.settings.body != empty %}
-                    {{ block.settings.body }}
-                  {% endif %}
-                </div>
-              </div>
             {% endcase %}
           {% endfor %}
         </div>
