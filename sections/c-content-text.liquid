@@ -26,7 +26,11 @@
     position: relative;
     max-width: 1440px;
     padding: 0;
-    width: 100%;
+    {% if section.settings.full_width == true %}
+      width: 100%;
+    {% else  %}
+      width: 90%;
+    {% endif %}
   }
 
   #{{ section.id }} .c-ct-grid {
@@ -93,7 +97,6 @@
 
   #{{ section.id }} .c-ct-grid2,
   #{{ section.id }} .c-ct-grid2 img {
-    border-radius: 8px;
     max-height: 600px;
     {% if section.settings.image_size == 'full_size' %}
       object-fit: contain;
@@ -225,6 +228,12 @@
       "id": "flip",
       "label": "Flip",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full Width",
+      "default": false
     },
     {
       "type": "select",
