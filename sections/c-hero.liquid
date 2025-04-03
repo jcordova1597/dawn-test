@@ -10,7 +10,7 @@
       background-repeat: no-repeat;
       background-position: center;
     {% endif %}
-    background: {{ section.settings.bg_color }};
+    background-color: {{ section.settings.bg_color }};
     position: relative;
   }
 
@@ -74,8 +74,9 @@
     justify-content: center;
     flex-wrap: wrap;
     justify-content: space-around;
-    max-width: 866px;
+    max-width: 913px;
     width: 90%;
+    margin: 0 auto;
   }
 
   #{{ section.id }} .c-hero-item {
