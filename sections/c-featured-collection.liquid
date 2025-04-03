@@ -48,6 +48,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 70px;
   }
 
   #{{ section.id }} .c-collection-item {
@@ -74,6 +75,30 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 16px;
+    margin: 0 0 18px;
+  }
+
+  #{{ section.id }} .c-b1 {
+    background: #E9128A;
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    color: white;
+    font-size: 20px;
+    line-height: 40px;
+    padding: 5px 28px;
+    text-decoration: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+    transition: all 0.4s ease-in;
+  }
+
+  #{{ section.id }} .c-b1:hover {
+    background: #FE6BB2;
+  }
+
+  #{{ section.id }} .c-buttons-div {
+    text-align: center;
+    display: block;
   }
 {% endstyle %}
 
@@ -110,7 +135,7 @@
     </div>
     {%- if section.settings.section_top_link != empty -%}
       <div class="c-buttons-div">
-        <a href="{{ section.settings.section_top_link_url }}" class="c-t-80 c-link">{{ section.settings.section_top_link }}</a>
+        <a href="{{ section.settings.section_top_link_url }}" class="c-b1">{{ section.settings.section_top_link }}</a>
       </div>
     {%- endif -%}
   </div>
