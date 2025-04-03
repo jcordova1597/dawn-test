@@ -73,10 +73,32 @@
         "padding_bottom": 5,
         "featured_collection": "frontpage"
       }
+    },
+    "c_content_text_6KgrVU": {
+      "type": "c-content-text",
+      "settings": {
+        "heading": "Boost Your Health. Save While You Thrive",
+        "paragraph": "<p>Health is a journey, not a one-time event. Get consistent support with our Subscribe and Save option, delivering up to 15% off every order to keep you on track and feeling your best.</p>",
+        "image_size": "full_cover",
+        "image": "shopify://shop_images/boost-bg.jpg",
+        "flip": false,
+        "grid_proportion": "1fr 1fr",
+        "alignment": "flex-start",
+        "text_alignment": "left",
+        "button_text": "GET A SUBSCRIPTION",
+        "button_url": "",
+        "bg_color": "#ebebeb",
+        "text_color": "#000",
+        "padding_desktop": "10% 10%",
+        "padding_mobile": "2em 1em 1em 1em",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "c_hero_HPDEQd",
-    "c_featured_collection_apV7kG"
+    "c_featured_collection_apV7kG",
+    "c_content_text_6KgrVU"
   ]
 }
