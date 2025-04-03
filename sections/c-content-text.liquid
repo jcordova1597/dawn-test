@@ -26,7 +26,7 @@
     position: relative;
     max-width: 1440px;
     padding: 0;
-    width: 90%;
+    width: 100%;
   }
 
   #{{ section.id }} .c-ct-grid {
@@ -49,11 +49,46 @@
   }
 
   #{{ section.id }} .c-ct-grid1 {
-    gap: 2em;
+    gap: 40px;
     padding: {{ section.settings.padding_desktop }};
     {% if section.settings.flip == true %}
       order: 1;
     {% endif %}
+  }
+
+  #{{ section.id }} .c-ct-grid1 h2 {
+    font-family: "Barlow", sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 90%;
+    margin: 0;
+  }
+
+  #{{ section.id }} .c-ct-grid1 p {
+    font-family: "Barlow", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 160%;
+    margin: 0;
+  }
+
+  #{{ section.id }} .c-b1 {
+    background: #E9128A;
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    color: white;
+    font-size: 20px;
+    line-height: 40px;
+    padding: 5px 28px;
+    text-decoration: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+    transition: all 0.4s ease-in;
+    display: inline-block;
+  }
+
+  #{{ section.id }} .c-b1:hover {
+    background: #FE6BB2;
   }
 
   #{{ section.id }} .c-ct-grid2,
