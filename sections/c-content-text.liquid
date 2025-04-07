@@ -164,8 +164,8 @@
 
 <section id="{{ section.id }}" class="c-section">
   <div class="page-width">
-    <div class="c-ct-grid">
-      <div class="c-ct-grid1">
+    <div class="grid grid-col--2">
+      <div class="grid__item">
         {% if section.settings.heading != empty %}
           <h2>{{ section.settings.heading }}</h2>
         {% endif %}
@@ -176,7 +176,7 @@
           <a href="{{ section.settings.button_url }}" class="c-b1">{{ section.settings.button_text }}</a>
         </div>
       </div>
-      <div class="c-ct-grid2">
+      <div class="grid__item">
         {% if section.settings.image %}
           {{
             section.settings.image
